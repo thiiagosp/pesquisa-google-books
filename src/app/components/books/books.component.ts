@@ -14,21 +14,27 @@ export class BooksComponent implements OnInit {
   data: any;
   books: any = [];
 
-  pager: any = {};
-  pagedItems: any[];
-  page = 1;
+  // pager: any = {};
+  // pagedItems: any[];
 
-  constructor(private booksService : BooksService, private router: Router, private pagerService: PagerService) { }
+  page: any;
+  totalPages: any;
+
+  constructor(private booksService : BooksService, private router: Router, private pagerService: PagerService) {
+
+    // this.page = 1;
+  }
 
 
   ngOnInit() {
-
   }
 
-  searchBookByKey() {
+  searchBookByKey(page) {
+    console.log(page)
     let key = this.keyInput.replace(' ', '%20');
-
-    this.booksService.getBooks(key, this.page)
+    let qtdItems = 21
+    let startIndex = page * qtdItems;
+    this.booksService.getBooks(key, qtdItems, startIndex)
     .then((data) => {
       if(data === 404) {
         console.log('User not found');
@@ -37,6 +43,9 @@ export class BooksComponent implements OnInit {
       }else {
         this.data = data;
         this.books = this.data.items;
+        this.totalPages = Math.ceil(this.data.totalItems / 12)
+        console.log(this.page)
+        console.log(this.totalPages)
         // console.log(data);
       }
       console.log(this.books)
@@ -80,17 +89,17 @@ export class BooksComponent implements OnInit {
   // }
 
 
-  setPage(page: number) {
-    if (page < 1 || page > this.pager.totalPages) {
-      return;
-    }
-
-    // get pager object from service
-    this.pager = this.pagerService.getPager(this.books.length, page);
-
-    // get current page of items
-    this.pagedItems = this.books.slice(this.pager.startIndex, this.pager.endIndex + 1);
-  }
+  // setPage(page: number) {
+  //   if (page < 1 || page > this.pager.totalPages) {
+  //     return;
+  //   }
+  //
+  //   // get pager object from service
+  //   this.pager = this.pagerService.getPager(this.books.length, page);
+  //
+  //   // get current page of items
+  //   this.pagedItems = this.books.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  // }
 
 
 

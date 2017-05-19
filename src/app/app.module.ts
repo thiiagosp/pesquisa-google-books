@@ -14,6 +14,7 @@ import { BooksComponent } from './components/books/books.component';
 // import { UsersService } from './services/users.service';
 import { PagerService } from './services/pager.service';
 import { BooksService } from './services/books.service';
+import { BookInfoComponent } from './book-info/book-info.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BooksService } from './services/books.service';
     MainComponent,
     // UserComponent,
     NotFoundComponent,
-    BooksComponent
+    BooksComponent,
+    BookInfoComponent
   ],
   imports: [
     BrowserModule,

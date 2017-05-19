@@ -9,8 +9,8 @@ export class BooksService {
   apiKey = 'AIzaSyAnh6A8UYle3wNsSTztzzTgKKCHj2YGoUY'
   constructor(private http: Http) {}
 
-  getBooks (key, page) {
-    this.baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=search+harry&maxResults=4&startIndex=' + page;
+  getBooks (key, qtdItems, page) {
+    this.baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=search+harry&maxResults='+ qtdItems +'&startIndex=' + page;
     console.log(this.baseUrl)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

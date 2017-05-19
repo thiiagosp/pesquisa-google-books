@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<!-- <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header page-scroll">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -10,26 +10,70 @@
       <a class="navbar-brand" href="#">Google Books API</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="nav navbar-nav navbar-right form" name="form" (ngSubmit)="searchBookByKey()">
+      <form class="nav navbar-nav justify-content-end form" name="form" (ngSubmit)="searchBookByKey()">
         <input type="text" autofocus class="usernameInput" [(ngModel)]="keyInput" name="usernameInput" placeholder="Book Key">
         <input type="submit" class="btn-search" name="search" value="Search">
       </form>
     </div>
   </div>
-</nav>
+</nav> -->
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-header page-scroll">
+    <a class="navbar-brand" href="#">Navbar</a>
+</div>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <div class="navbar-nav mr-auto">
+      </div>
+      <form class=" navbar-right justify-content-end form-inline" name="form" (ngSubmit)="searchBookByKey(page = 1)">
+        <input type="text" autofocus class="usernameInput" [(ngModel)]="keyInput" name="usernameInput" placeholder="Book Key">
+        <input type="submit" class="btn-search" name="search" value="Search">
+      </form>
+    </div>
+  </nav>
+
+
+
 
 <!-- {{books}} -->
 
 <section *ngIf="books.length > 0">
   <div class="container">
     <div class="row">
-      <h2>{{ keyInput }}</h2>
+      <div class="col-md-3 col-xs-6">
+        <h2>{{ keyInput }}</h2>
+      </div>
+      <div class="col-md-9 col-xs-6">
+        <ul *ngIf="totalPages && totalPages > 1" class="pagination">
+        <li [ngClass]="{disabled:page === 1}">
+        <a (click)="searchBookByKey(page = page - 1)">Anterior</a>
+        </li>
+        <li [ngClass]="{disabled:page === totalPages}">
+        <a (click)="searchBookByKey(page = page + 1)">Proximo</a>
+        </li>
+        <!-- <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+        </li> -->
+        </ul>
+      </div>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-sm-12" *ngFor="let book of books">
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="">
           <img class="card-img-top" src="{{ book.volumeInfo.imageLinks.thumbnail }}" alt="Card image cap">
           <div class="card-block">
             <h4 class="card-title">{{ book.volumeInfo.title }}</h4>

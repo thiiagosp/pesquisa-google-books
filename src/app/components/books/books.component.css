@@ -1,53 +1,63 @@
 h1,h2,h3,h4,h5,h6 {
-     font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 section {
-     padding: 100px 0;
+  padding: 100px 0;
 }
 
+.card-img-top {
+  width: 50%;
+  margin: 0 auto;
+}
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 
 
 
 
 .navbar {
-     background: #24292e;
+  background: #24292e;
 }
 
 .navbar-brand, .navbar-brand:hover {
-     color: #c8c9ca;
-     font-size: 20px;
-     font-family: 'Montserrat', sans-serif;
-     margin-top: 2px;
+  color: #c8c9ca;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 2px;
 }
 
 .form {
-     margin: 10px 0;
+  margin: 10px 0;
 }
 
 .btn-search {
-     color: #c8c9ca;
-     font-size: 14px;
-     border: none;
-     background: transparent;
-     font-family: 'Montserrat', sans-serif;
+  color: #c8c9ca;
+  font-size: 14px;
+  border: none;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-search:hover {
-     color: #fafafa;
+  color: #fafafa;
 }
 
 
 .usernameInput {
-     font-family: 'Montserrat', sans-serif;
-     padding: 5px 8px;
-     width: 220px;
-     margin: 0 20px;
-     border-radius: 5px;
-     color: #c8c9ca;
-     border: 2px solid #24292e;
-     background: #4a4e52;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px 8px;
+  width: 220px;
+  margin: 0 20px;
+  border-radius: 5px;
+  color: #c8c9ca;
+  border: 2px solid #24292e;
+  background: #4a4e52;
 }
 
 
@@ -59,37 +69,37 @@ section {
 
 
 .input-comment {
-     width: 70%;
-     padding: 10px;
-     border-radius: 5px;
-     border: 2px solid #dedede;
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #dedede;
 }
 .btn-comment {
-     color: #24292e;
-     font-size: 12px;
-     bottom: 0;
-     position: absolute;
-     border: none;
-     background: transparent;
-     font-family: 'Montserrat', sans-serif;
+  color: #24292e;
+  font-size: 12px;
+  bottom: 0;
+  position: absolute;
+  border: none;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-comment:hover {
-     color: #6C737A;
+  color: #6C737A;
 }
 
 .btn-remove {
-     border: none;
-     background: transparent;
-     display: inline-block;
-     float: right;
+  border: none;
+  background: transparent;
+  display: inline-block;
+  float: right;
 }
 
 .pagination {
-     margin: 20px auto;
-     display: table;
+  margin: 20px auto;
+  display: table;
 }
 
 .list-group-item {
-     margin-bottom: 5px;
+  margin-bottom: 5px;
 }
