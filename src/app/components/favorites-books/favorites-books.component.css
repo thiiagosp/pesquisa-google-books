@@ -1,0 +1,18 @@
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+section {
+  padding: 100px 0;
+}
+
+.card-img-top {
+  width: 50%;
+  margin: 0 auto;
+}
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

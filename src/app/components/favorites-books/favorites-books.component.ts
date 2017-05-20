@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorites-books.component.css']
 })
 export class FavoritesBooksComponent implements OnInit {
+  books: any = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.getFavoritesBooks();
   }
 
+  getFavoritesBooks() {
+    this.books = JSON.parse(localStorage.getItem('favoritesBooks')) || [];
+    console.log(this.books)
+  }
 }

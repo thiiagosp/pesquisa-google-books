@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -23,27 +24,34 @@
   </div>
 </nav>
 
-<section *ngIf="book">
+<section *ngIf="books && books.length > 0">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-sm-4 col-xs-12">
-        <div class="image">
-          <img *ngIf="book.volumeInfo.imageLinks" class="card-img-top" src="{{ book.volumeInfo.imageLinks.thumbnail }}" alt="Book Image">
-          <h5>{{ book.volumeInfo.title }}</h5>
-          <p>{{ book.volumeInfo.printType }} of {{ book.volumeInfo.pageCount }} pages</p>
-          <p>{{ book.volumeInfo.publishedDate }} </p>
-          <p>Publisher: {{ book.volumeInfo.publisher }} </p>
-          <p>Mature Rating: {{ book.volumeInfo.maturityRating }} </p>
-          <a href="{{book.volumeInfo.infoLink}}"><button type="button" name="button">Buy</button></a>
-          <button type="button" name="button" (click)="favoriteBook(book)"><i class="fa fa-star"></i> Favorite</button>
-        </div>
+      <div class="col-md-3 col-xs-6">
+        <h2>{{key}}</h2>
       </div>
-      <div class="col-md-9 col-sm-8 col-xs-12">
-        <p>Authors:
-          <span  *ngFor="let author of book.volumeInfo.authors">{{ author }}, </span>
-        </p>
-        <p><span>Description: </span>{{ book.volumeInfo.description }}</p>
+      <div class="col-md-9 col-xs-6 pagination" *ngIf="totalPages && totalPages > 1">
+        <button [ngClass]="{disabled:page === 1}" (click)="searchBook(page = page - 1)">Anterior</button>
+        <button [ngClass]="{disabled:page === totalPages}" (click)="searchBook(page = page + 1)">Proximo</button>
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12" *ngFor="let book of books">
+        <div class="card">
+          <img *ngIf="book.volumeInfo.imageLinks" class="card-img-top" src="{{ book.volumeInfo.imageLinks.thumbnail }}" alt="Book image">
+          <div class="card-block">
+            <h4 class="card-title">{{ book.volumeInfo.title }}</h4>
+            <p class="card-text">{{ book.volumeInfo.description }}</p>
+            <a (click)="moreInfo(books.indexOf(book))" class="btn btn-primary">More Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="books && books.length < 1">
+  <h2>Your list of favorites books is empty.</h2>
 </section>

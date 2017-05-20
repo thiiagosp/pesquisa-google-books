@@ -11,12 +11,12 @@ import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BooksComponent } from './components/books/books.component';
 import { BookInfoComponent } from './components/book-info/book-info.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './components/header/header.component'; 
+import { FavoritesBooksComponent } from './components/favorites-books/favorites-books.component';
 
 // import { UsersService } from './services/users.service';
 import { PagerService } from './services/pager.service';
 import { BooksService } from './services/books.service';
-import { FavoritesBooksComponent } from './favorites-books/favorites-books.component';
 
 @NgModule({
   declarations: [
