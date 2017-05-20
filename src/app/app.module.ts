@@ -10,11 +10,12 @@ import { MainComponent } from './components/main/main.component';
 // import { UserComponent } from './components/user/user.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BooksComponent } from './components/books/books.component';
+import { BookInfoComponent } from './components/book-info/book-info.component';
 
 // import { UsersService } from './services/users.service';
 import { PagerService } from './services/pager.service';
 import { BooksService } from './services/books.service';
-import { BookInfoComponent } from './book-info/book-info.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BookInfoComponent } from './book-info/book-info.component';
     // UserComponent,
     NotFoundComponent,
     BooksComponent,
-    BookInfoComponent
+    BookInfoComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

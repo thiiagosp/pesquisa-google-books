@@ -11,9 +11,11 @@ import { Router } from '@angular/router';
 export class BooksComponent implements OnInit {
 
   keyInput: any;
+  key: any;
   data: any;
   books: any = [];
 
+  bookIndex: number;
   // pager: any = {};
   // pagedItems: any[];
 
@@ -21,17 +23,20 @@ export class BooksComponent implements OnInit {
   totalPages: any;
 
   constructor(private booksService : BooksService, private router: Router, private pagerService: PagerService) {
-
-    // this.page = 1;
   }
-
 
   ngOnInit() {
   }
 
   searchBookByKey(page) {
+    this.key = this.keyInput;
+    console.log(this.key)
+    this.searchBook(page);
+  }
+
+  searchBook(page) {
     console.log(page)
-    let key = this.keyInput.replace(' ', '%20');
+    let key = this.key.replace(' ', '%20');
     let qtdItems = 21
     let startIndex = page * qtdItems;
     this.booksService.getBooks(key, qtdItems, startIndex)
@@ -51,6 +56,11 @@ export class BooksComponent implements OnInit {
       console.log(this.books)
       // this.keyInput = '';
     })
+  }
+
+  moreInfo(bookIndex) {
+    this.bookIndex = bookIndex;
+    this.router.navigate(['bookInfo']);
   }
 
   // searchUserByUsername(username) {
