@@ -32,11 +32,12 @@
           <p>Publisher: {{ book.volumeInfo.publisher }} </p>
           <p>Mature Rating: {{ book.volumeInfo.maturityRating }} </p>
           <a href="{{book.volumeInfo.infoLink}}"><button type="button" name="button">Buy</button></a>
+          <button type="button" name="button" (click)="favoriteBook(book)"><i class="fa fa-star"></i> Favorite</button>
         </div>
       </div>
       <div class="col-md-9 col-sm-8 col-xs-12">
         <p>Authors:
-          <span  *ngFor="let author of book.volumeInfo.authors">{{ author }}</span>
+          <span  *ngFor="let author of book.volumeInfo.authors">{{ author }}, </span>
         </p>
         <p><span>Description: </span>{{ book.volumeInfo.description }}</p>
       </div>

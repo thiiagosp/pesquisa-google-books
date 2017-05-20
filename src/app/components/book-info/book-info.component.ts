@@ -32,4 +32,13 @@ export class BookInfoComponent implements OnInit {
     console.log(this.book)
   }
 
+
+
+  favoriteBook(book) {
+    var favoritesBooks: any = localStorage.getItem('favoritesBooks')? JSON.parse(localStorage.getItem('favoritesBooks')) : [];
+    favoritesBooks.push(JSON.stringify(book));
+    localStorage.setItem('favoritesBooks', JSON.parse(favoritesBooks));
+
+  }
+
 }
