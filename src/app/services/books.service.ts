@@ -20,7 +20,7 @@ export class BooksService {
       this.http.get(this.baseUrl, {headers: headers})
       .subscribe((data) => {
         this.books = data.json().items;
-        // console.log(data.json());
+        console.log(this.books);
         resolve(data.json());
       }, error => {
         if(error.status == 404 ) {

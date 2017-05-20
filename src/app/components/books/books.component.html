@@ -1,4 +1,6 @@
-<!-- <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<app-header></app-header>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <div class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a outerLink="/index" class="nav-link" href="#">Books </a>
+        <a routerLink="/book" class="nav-link" href="#">Books </a>
       </li>
 
     </div>
@@ -17,8 +19,7 @@
       <input type="submit" class="btn-search" name="search" value="Search">
     </form>
   </div>
-</nav> -->
-<app-header></app-header>
+</nav>
 
 
 
@@ -30,40 +31,26 @@
       <div class="col-md-3 col-xs-6">
         <h2>{{key}}</h2>
       </div>
-      <div class="col-md-9 col-xs-6">
-        <ul *ngIf="totalPages && totalPages > 1" class="pagination">
-          <button [ngClass]="{disabled:page === 1}" (click)="searchBook(page = page - 1)">Anterior</button>
-          <button [ngClass]="{disabled:page === totalPages}" (click)="searchBook(page = page + 1)">Proximo</button>
-          <!-- <li [ngClass]="{disabled:pager.currentPage === 1}">
-          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-        </li>
-        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-        <a (click)="setPage(page)">{{page}}</a>
-      </li>
-      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-      <a (click)="setPage(pager.currentPage + 1)">Next</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-    <a (click)="setPage(pager.totalPages)">Last</a>
-  </li> -->
-</ul>
-</div>
-</div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-sm-12" *ngFor="let book of books">
-      <div class="card" style="">
-        <img *ngIf="book.volumeInfo.imageLinks" class="card-img-top" src="{{ book.volumeInfo.imageLinks.thumbnail }}" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">{{ book.volumeInfo.title }}</h4>
-          <p class="card-text">{{ book.volumeInfo.description }}</p>
-          <a (click)="moreInfo(books.indexOf(book))" class="btn btn-primary">More Info</a>
+      <div class="col-md-9 col-xs-6 pagination" *ngIf="totalPages && totalPages > 1">
+        <button [ngClass]="{disabled:page === 1}" (click)="searchBook(page = page - 1)">Anterior</button>
+        <button [ngClass]="{disabled:page === totalPages}" (click)="searchBook(page = page + 1)">Proximo</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12" *ngFor="let book of books">
+        <div class="card">
+          <img *ngIf="book.volumeInfo.imageLinks" class="card-img-top" src="{{ book.volumeInfo.imageLinks.thumbnail }}" alt="Book image">
+          <div class="card-block">
+            <h4 class="card-title">{{ book.volumeInfo.title }}</h4>
+            <p class="card-text">{{ book.volumeInfo.description }}</p>
+            <a (click)="moreInfo(books.indexOf(book))" class="btn btn-primary">More Info</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- <section [hidden]="!user.name">

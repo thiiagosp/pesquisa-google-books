@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from './../../services/books.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-info',
@@ -8,15 +9,26 @@ import { BooksService } from './../../services/books.service';
 })
 export class BookInfoComponent implements OnInit {
 
-  @Input() bookIndex: any;
+  bookIndex: any;
   book: any = {}
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
-    document.getElementById('bookInfo').classList.remove('hidden');
-    if(this.bookIndex) this.book = this.booksService.books(this.bookIndex);
-    console.log(this.booksService.books[this.bookIndex])
+    // console.log(this.route.queryParams)
+    // console.log(this.route.queryParams.subscribe())
+    // console.log(this.route.queryParams.subscribe(params => {
+    //   params['book']
+    // }))
+    this.route.queryParams.subscribe(params => {
+        this.bookIndex = params['bookIndex'] || -1;
+      });
+      console.log(this.bookIndex)
+
+
+    if(this.bookIndex) this.book = this.booksService.books[this.bookIndex];
+    // console.log(this.booksService.books[this.bookIndex])
     console.log(this.book)
   }
 

@@ -26,6 +26,8 @@ export class BooksComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.booksService.books)
+    if(this.booksService.books) this.books = this.booksService.books;
   }
 
   searchBookByKey(page) {
@@ -60,7 +62,7 @@ export class BooksComponent implements OnInit {
 
   moreInfo(bookIndex) {
     this.bookIndex = bookIndex;
-    this.router.navigate(['bookInfo']);
+    this.router.navigate(['bookInfo'], { queryParams: { bookIndex: bookIndex } });
   }
 
   // searchUserByUsername(username) {

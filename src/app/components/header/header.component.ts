@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BooksComponent} from './../books/books.component';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private booksComponent: BooksComponent) { }
 
   ngOnInit() {
+  }
+  searchBookByKey(page) {
+    this.booksComponent.searchBookByKey(page)
   }
 
 }

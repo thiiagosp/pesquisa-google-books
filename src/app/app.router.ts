@@ -9,6 +9,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const router: Routes = [
   { path: "", redirectTo: "book", pathMatch: "full"},
+  { path: "index", component: MainComponent},
   { path: "book", component: BooksComponent},
   { path: "bookInfo", component: BookInfoComponent},
   { path: "404", component: NotFoundComponent},

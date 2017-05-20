@@ -1,3 +1,45 @@
 <app-header></app-header>
-<h2>book info</h2>
-<h3>{{book.title}}</h3>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-header page-scroll">
+    <a class="navbar-brand" href="#">Navbar</a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/book" class="nav-link" href="#">Books </a>
+      </li>
+
+    </div>
+    <form class=" navbar-right justify-content-end form-inline" name="form" (ngSubmit)="searchBookByKey(page = 1)">
+      <input type="text" autofocus class="usernameInput" [(ngModel)]="keyInput" name="usernameInput" placeholder="Book Key">
+      <input type="submit" class="btn-search" name="search" value="Search">
+    </form>
+  </div>
+</nav>
+
+<section *ngIf="book">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="image">
+          <img *ngIf="book.volumeInfo.imageLinks" class="card-img-top" src="{{ book.volumeInfo.imageLinks.thumbnail }}" alt="Book Image">
+          <h5>{{ book.volumeInfo.title }}</h5>
+          <p>{{ book.volumeInfo.printType }} of {{ book.volumeInfo.pageCount }} pages</p>
+          <p>{{ book.volumeInfo.publishedDate }} </p>
+          <p>Publisher: {{ book.volumeInfo.publisher }} </p>
+          <p>Mature Rating: {{ book.volumeInfo.maturityRating }} </p>
+          <a href="{{book.volumeInfo.infoLink}}"><button type="button" name="button">Buy</button></a>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-8 col-xs-12">
+        <p>Authors:
+          <span  *ngFor="let author of book.volumeInfo.authors">{{ author }}</span>
+        </p>
+        <p><span>Description: </span>{{ book.volumeInfo.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
