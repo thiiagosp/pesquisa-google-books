@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,10 +19,6 @@
     </form>
   </div>
 </nav>
-
-
-
-<!-- {{books}} -->
 
 <section *ngIf="books && books.length > 0">
   <div class="container tool-container">
@@ -61,79 +55,3 @@
     </div>
   </div>
 </section>
-
-<!-- <section [hidden]="!user.name">
-<div class="container">
-<div class="row">
-<div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-<div class="col-md-4">
-<a href="{{user.avatar_url}}" target="_blank">
-<img src="{{user.avatar_url}}" alt="" class="img-responsive">
-</a>
-<h4>{{user.name}}</h4>
-<h5>{{user.login}}</h5>
-<hr>
-<p [hidden]="!user.company"><i class="fa fa-building"></i> {{user.company}}</p>
-<p [hidden]="!user.location"><i class="fa fa-map-marker"></i> {{user.location}}</p>
-<p [hidden]="!user.blog">
-<i class="fa fa-link"></i>
-<a href="{{user.blog}}" target="_blank">{{user.blog}}</a>
-</p>
-
-</div>
-<div class="col-md-8">
-<h2>Repositories</h2>
-
-<div class="list-group">
-<a class="list-group-item" *ngFor="let repo of pagedItems" href="{{repo.html_url}}" target="_blank">
-<h4 class="list-group-item-heading">{{repo.name}}</h4>
-<p class="list-group-item-text">{{repo.description}}</p>
-</a>
-</div>
-
-<ul *ngIf="pager.pages && pager.pages.length > 1" class="pagination">
-<li [ngClass]="{disabled:pager.currentPage === 1}">
-<a (click)="setPage(1)">First</a>
-</li>
-<li [ngClass]="{disabled:pager.currentPage === 1}">
-<a (click)="setPage(pager.currentPage - 1)">Previous</a>
-</li>
-<li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-<a (click)="setPage(page)">{{page}}</a>
-</li>
-<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-<a (click)="setPage(pager.currentPage + 1)">Next</a>
-</li>
-<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-<a (click)="setPage(pager.totalPages)">Last</a>
-</li>
-</ul>
-
-<hr>
-<h2>Comments</h2>
-
-<div [hidden]="!comments">
-<div class="list-group">
-<div class="list-group-item" *ngFor="let comment of comments">
-<div class="row">
-<div class="col-md-10">
-<p class="list-group-item-text">{{comment}}</p>
-</div>
-<div class="col-md-2">
-<button class="btn-remove" (click)="removeComment(comment)" type="button" name="button"><i class="fa fa-trash"></i></button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<form name="commentForm" (ngSubmit)="addComment()">
-<input type="text" class="input-comment" [(ngModel)]='commentInput' name="input-comment" placeholder="Add comment...">
-<input type="submit" class="btn-comment" name="search" value="Add Comment">
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section> -->

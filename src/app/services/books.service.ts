@@ -12,8 +12,6 @@ export class BooksService {
 
   getBooks (key, qtdItems, page) {
     this.baseUrl = `https://www.googleapis.com/books/v1/volumes?q=search+${key}&maxResults=${qtdItems}&startIndex=${page}`;
-    // this.baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=search+harry&maxResults='+ qtdItems +'&startIndex=' + page;
-    console.log(this.baseUrl)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -21,7 +19,6 @@ export class BooksService {
       this.http.get(this.baseUrl, {headers: headers})
       .subscribe((data) => {
         this.books = data.json().items;
-        console.log(this.books);
         resolve(data.json());
       }, error => {
         if(error.status == 404 ) {
@@ -34,6 +31,3 @@ export class BooksService {
   }
 
 }
-
-//https://developers.google.com/books/docs/v1/reference/volumes/list
-//http://stackoverflow.com/questions/11375173/google-books-api-returns-only-10-results
