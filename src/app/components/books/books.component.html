@@ -4,9 +4,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="navbar-header page-scroll">
-    <a class="navbar-brand" href="#">Navbar</a>
-  </div>
+  <div class="navbar-header page-scroll"></div>
   <div class="collapse navbar-collapse" id="navbarColor01">
     <div class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -18,7 +16,7 @@
 
     </div>
     <form class=" navbar-right justify-content-end form-inline" name="form" (ngSubmit)="searchBookByKey(page = 1)">
-      <input type="text" autofocus class="usernameInput" [(ngModel)]="keyInput" name="usernameInput" placeholder="Book Key">
+      <input type="text" autofocus class="searchInput" [(ngModel)]="keyInput" name="searchInput" placeholder="Book Key">
       <input type="submit" class="btn-search" name="search" value="Search">
     </form>
   </div>
@@ -28,15 +26,15 @@
 
 <!-- {{books}} -->
 
-<section *ngIf="books.length > 0">
-  <div class="container">
+<section *ngIf="books && books.length > 0">
+  <div class="container tool-container">
     <div class="row">
-      <div class="col-md-3 col-xs-6">
+      <div class="col-md-3 col-xs-3">
         <h2>{{key}}</h2>
       </div>
-      <div class="col-md-9 col-xs-6 pagination" *ngIf="totalPages && totalPages > 1">
-        <button [ngClass]="{disabled:page === 1}" (click)="searchBook(page = page - 1)">Anterior</button>
-        <button [ngClass]="{disabled:page === totalPages}" (click)="searchBook(page = page + 1)">Proximo</button>
+      <div class="col-md-9 col-xs-9 pagination" *ngIf="totalPages && totalPages > 1">
+        <button *ngIf="page !== 1" class="btn-pagination"  (click)="searchBook(page = page - 1)">Previous</button>
+        <button *ngIf="page !== totalPages" class="btn-pagination"  (click)="searchBook(page = page + 1)">Next</button>
       </div>
     </div>
   </div>
@@ -48,9 +46,17 @@
           <div class="card-block">
             <h4 class="card-title">{{ book.volumeInfo.title }}</h4>
             <p class="card-text">{{ book.volumeInfo.description }}</p>
-            <a (click)="moreInfo(books.indexOf(book))" class="btn btn-primary">More Info</a>
+            <a (click)="moreInfo(books.indexOf(book))" class="btn btn-primary btn-info">More Info</a>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="container tool-container">
+    <div class="row">
+      <div class="col-md-9 col-xs-9 pagination" *ngIf="totalPages && totalPages > 1">
+        <button *ngIf="page !== 1" class="btn-pagination"  (click)="searchBook(page = page - 1)">Previous</button>
+        <button *ngIf="page !== totalPages" class="btn-pagination"  (click)="searchBook(page = page + 1)">Next</button>
       </div>
     </div>
   </div>

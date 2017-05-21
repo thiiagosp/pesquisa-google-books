@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favorites-books',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesBooksComponent implements OnInit {
   books: any = [];
+  bookIndex: number;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.getFavoritesBooks();
@@ -17,5 +19,10 @@ export class FavoritesBooksComponent implements OnInit {
   getFavoritesBooks() {
     this.books = JSON.parse(localStorage.getItem('favoritesBooks')) || [];
     console.log(this.books)
+  }
+
+  moreInfo(bookIndex) {
+    this.bookIndex = bookIndex;
+    this.router.navigate(['bookInfo'], { queryParams: { book: JSON.stringify(this.books[bookIndex]) } });
   }
 }
