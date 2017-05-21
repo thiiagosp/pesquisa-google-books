@@ -1,5 +1,5 @@
 {
-  "name": "involves-project",
+  "name": "search-project",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -45,7 +45,7 @@
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
   },
-  "description": "Teste de seleção Involves.",
+  "description": "Aplicação que faz requisição a API do Google Books",
   "main": "karma.conf.js",
   "repository": {
     "type": "git",

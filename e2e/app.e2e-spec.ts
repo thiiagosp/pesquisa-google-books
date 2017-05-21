@@ -1,10 +1,10 @@
-import { InvolvesProjectPage } from './app.po';
+import { SearchProjectPage } from './app.po';
 
-describe('involves-project App', () => {
-  let page: InvolvesProjectPage;
+describe('search-project App', () => {
+  let page: SearchProjectPage;
 
   beforeEach(() => {
-    page = new InvolvesProjectPage();
+    page = new SearchProjectPage();
   });
 
   it('should display message saying app works', () => {
