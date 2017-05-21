@@ -1,6 +1,8 @@
 # Aplicação responsável por realizar requisição na API do Google Books
 
-Esse Aplicação realiza a pesquisa de livros através de uma palavra chave e retorna os resultados em uma mesma página. Você também pode visualizar mais informações do livro que houver interesse e até favoritar o livro. Havendo também uma aba de livros favoritos. Como tecnologia, foi utilizado Angular 2.
+Esse Aplicação realiza a pesquisa de livros através de uma palavra chave e retorna os resultados em uma mesma página. Você também pode visualizar mais informações do livro que houver interesse e até favoritar o livro. Havendo também uma aba de livros favoritos.
+
+Como tecnologia, foi utilizado Angular 2 com Bootstrap por haver um maior grau de conhecimento e segurança para o desenvolvimento.
 
 ## Como Executar a aplicação
 
